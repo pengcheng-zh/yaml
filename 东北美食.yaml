@@ -1,0 +1,65 @@
+{
+  "theme": "中国东北美食",
+  "short_description": "Good food from the NE China",
+  "experts": [
+    {
+      "role": "filter_category",
+      "expert_type": "category_filter",
+      "output_type": "bool",
+      "filters": {
+        "include": [
+          "Frozen",
+          "RFG FOOD",
+          "Instant Food",
+          "Beverage",
+          "Dry Goods",
+          "Snacks",
+          "Canned & Packaged",
+          "Soy products",
+          "Seasonings"
+        ]
+      }
+    },
+    {
+      "role": "count_review",
+      "expert_type": "counter",
+      "output_type": "reason",
+      "assumption": "这个商品是属于东北美食或可以作为东北美食的主要食材，或者是东北特有的零食",
+      "input_key": ["user_reviews"],
+      "review_keywords": ["东北", "黏糊", "大连", "朝鲜族", "沉阳", "哈尔滨", "黑龙江", "东北大米", "沈阳人", "老式", "长春", "辽宁", "东三省", "黑土地"],
+      "match_keywords": ["东北", "黏糊", "大连", "朝鲜族", "沉阳", "哈尔滨", "黑龙江", "东北大米", "沈阳人", "老式", "长春", "辽宁", "东三省", "黑土地"]
+    },
+    {
+      "role": "answer_from_ne_china",
+      "expert_type": "qa",
+      "output_type": "reason",
+      "question": "该商品有明确说明是东北人，或是哈尔滨人，或是沈阳人，或是大连人喜欢和觉得正宗的么？",
+      "input_key": ["product_information", "user_reviews"],
+      "review_keywords": ["味道正宗", "是那个味道", "和国内吃一个味", "大连人认可", "家乡的味道", "沈阳", "长春", "大连", "锦州", "辽宁", "东北", "黑龙江", "哈尔滨", "沈阳人最爱", "家乡味道", "辽宁锦州", "辽宁朝阳", "大连人喜欢", "一口回到大沈阳", "沈阳特产"]
+    },
+    {
+      "role": "answer_your_own_judgement",
+      "expert_type": "qa",
+      "output_type": "reason",
+      "question": "请用你自己的知识给出判断这个商品是否是典型的东北美食，或者东北美食的重要食材。",
+      "input_key": ["product_information"],
+      "review_keywords": []
+    },
+    {
+      "role": "executor",
+      "expert_type": "executor",
+      "assumption": "这个商品被专家认为是东北美食，食材或者零食，东北人觉得正宗的，或者你也觉得是典型的东北美食",
+      "output_type": "bool",
+      "input_key": ["product_information", "experts_answer"],
+      "input_experts": ["count_review", "answer_from_ne_china", "answer_your_own_judgement"]
+    }
+  ],
+  "retrieval": {
+      "source": ["search_keywords", "few_shots"],
+      "search_keywords": ["东北", "黏糊", "大连", "朝鲜族", "沉阳", "哈尔滨", "黑龙江", "东北大米", "沈阳人", "老式", "长春", "辽宁", "东三省", "黑土地"],
+      "region_keywords": [],
+      "review_keywords": [],
+      "test_products": [],
+      "few_shots": [49005, 7958, 105149, 98187, 4007, 99039, 98656, 105458, 107983, 106049, 105445, 105436, 25860, 107868, 103429, 107858, 7391, 105435, 6357, 102493, 102195, 106682, 106990]
+  }
+}
