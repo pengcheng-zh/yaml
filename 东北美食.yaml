@@ -56,7 +56,7 @@
   ],
   "retrieval": {
       "source": ["search_keywords", "few_shots"],
-      "search_keywords": ["东北", "黏糊", "大连", "朝鲜族", "沉阳", "哈尔滨", "黑龙江", "东北大米", "沈阳人", "老式", "长春", "辽宁", "东三省", "黑土地"],
+      "search_keywords": [],
       "region_keywords": [],
       "review_keywords": [],
       "test_products": [],
