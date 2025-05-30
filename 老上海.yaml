@@ -8,8 +8,7 @@
       "output_type": "bool",
       "filters": {
         "include": [
-          "Frozen", "RFG FOOD", "Bakery", "Seafood", "Instant Food", 
-          "Beverage", "Dry Goods", "Snacks", "Canned & Packaged", "Seasonings"
+          "Frozen", "RFG FOOD", "Bakery", "Seafood", "Instant Food", "Beverage", "Dry Goods", "Snacks", "Canned & Packaged", "Seasonings"
         ]
       }
     },
