@@ -7,7 +7,7 @@
       "expert_type": "region_filter",
       "output_type": "bool",
       "input_key": ["product_information", "user_reviews"],
-      "region_keywords": ["台湾", "台式"]
+      "region_keywords": ["台湾", "台式", "Taiwan"]
     },
     {
       "role": "answer_your_own_judgement",
