@@ -1,0 +1,36 @@
+{
+  "theme": "台湾美食",
+  "short_description": "台湾美食",
+  "experts": [
+    {
+      "role": "filter_region",
+      "expert_type": "region_filter",
+      "output_type": "bool",
+      "input_key": ["product_information", "user_reviews"],
+      "region_keywords": ["台湾", "台式"]
+    },
+    {
+      "role": "answer_your_own_judgement",
+      "expert_type": "qa",
+      "output_type": "reason",
+      "question": "请用你自己的知识给出判断这个商品是否是典型的台湾美食，或者台湾美食的重要食材。",
+      "input_key": ["product_information"],
+      "review_keywords": []
+    },
+    {
+      "role": "executor",
+      "expert_type": "executor",
+      "assumption": "请结合你自己的知识以及专家的回答",
+      "output_type": "bool",
+      "input_key": ["product_information", "experts_answer"],
+      "input_experts": ["filter_region", "answer_your_own_judgement"]
+    }
+  ],
+  "retrieval": {
+      "source": ["region_keywords"],
+      "search_keywords": [],
+      "region_keywords": ["台湾", "台式"],
+      "review_keywords": [],
+      "few_shots": [40290, 68297, 74889, 104124]
+    }
+}
