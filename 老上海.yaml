@@ -7,10 +7,10 @@
       "expert_type": "category_filter",
       "output_type": "bool",
       "filters": {
-        "include": {
+        "include": [
           "Frozen", "RFG FOOD", "Bakery", "Seafood", "Instant Food", 
           "Beverage", "Dry Goods", "Snacks", "Canned & Packaged", "Seasonings"
-        }
+        ]
       }
     },
     {
